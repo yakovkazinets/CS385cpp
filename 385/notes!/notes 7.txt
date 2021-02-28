@@ -1,0 +1,46 @@
+A tree is a directed acyclic graph.
+A binary tree is one in which there are 2 children(possibly null) for every non-null node.
+A binary search tree is a binary tree where each node in the left subtree has a key < the value
+at the root and each node in the right subtree has  a key > the value at the root
+
+Three types of tree traversals
+
+preorder -> root left right
+inorder  -> left root right
+postoder -> left right root
+
+
+struct Node {
+	int key;
+	Node *left, *right;
+}
+
+void inorder (Node *n){
+	if (n!= nullptr){
+		inorder(n->left);
+		cout << n->key <<endl;
+		inorder(n->right);
+	}
+}
+
+Interview tree questions:
+
+inorder:   [19, 20, 25, 30, 33, 36, 39, 50, 63, 77, 90]
+postorder: [19, 25, 33, 39, 36, 30, 20, 63, 90, 77, 50]
+
+We know the root is 50 bc as the rightmost node in postorder
+traversals is the root. 
+
+the root is level 0;
+height: the number of edges from root to deepest leaf
+
+null pointer height: -1
+---|
+   |
+   v
+
+
+max width: the # of nodes on the level that has the most nodes
+
+diameter: # of edges on the longest path between any two nodes
+(not always through root)

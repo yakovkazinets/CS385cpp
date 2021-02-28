@@ -1,0 +1,72 @@
+2-3 trees - Basis for B trees which are the basis for the modern relational ree backend implementation
+	-Allow a more densely populated tree, allowing a faster lookup time.
+
+	70
+	
+      23   112 
+   
+    10  50 99  150 
+
+Transform and conquer:
+
+p(x)	 = 2x^4 -x^3 +3x^2 +x - 5
+    	 = x(x(2x^2 - x + 3) + 1 ) + 5
+    	 = x(x(x(2x-1)+3)+1)+ 5
+	       3  5
+
+
+Horner's rule for evalutating a polynomial:
+
+Horner (P[0 , n],x)
+
+Evaluates a polynomial at a given point by Horner's rule
+
+an array P[0,n] of coefficents of a polynomial of degree n,
+store from the lowest to the highest, and a number x.
+
+Output: the value of the polynomial at x
+
+p<-P[n]
+for i <- n-1 down to 0 do
+	p <-x *p + P[i]
+return p 
+
+P[-5,1,3,-1,2]
+
+x p n i
+------------
+3 2 4 
+  5   3
+  18  2
+  55  1
+  160
+
+Binary Exponentiation
+
+compute a^n
+
+Let n = bI ..bi...b0
+p(x) = b2 x^I + ....+ bi x^i +....b0, where x = 2
+a^13= 1101
+
+a^n = a^p(2) = a^b "                " 
+			|
+			|
+Horner's rule for the 	  Implication for a^n = a^p(2)
+binary polynomial p(2)    
+
+p<-1			  a^p < a^1
+for i<- I down to 0 do    for i<- I down to 0 do 
+	p<-2p+bi 	  aP <-a^2p+bi
+			But a^2p+bi ===> fun stuff look at phone for rest of notes in pictures!
+
+
+
+
+
+/Number of multiplications
+b-1 <= M(n) <= 2(b-1)
+
+Where b is the number of bits to represent exponent n
+Therefore b -1 = floor of lg 2 => Theta (lg n)
+

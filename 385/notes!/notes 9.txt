@@ -1,0 +1,26 @@
+
+Red black trees
+1.) every node is either red or black
+2.) 
+
+Left - Rotate
+y = x.right
+x.right = y.left	//set y
+if y.left != T.nil 	//nil is basically null pointer
+	y.left.p =x	
+y.p = x.p		//link x's parent to y
+if x.p ==T.nil 
+	t.root = y
+else if x==x.p.left
+	x.p.left = y
+else 
+	x.p.right = y
+x.left = x		//put x on the y's left
+x.p = y
+
+For right - rotate
+same psuedo code but change all left and rights 
+
+
+RB - Insert
+

@@ -1,0 +1,408 @@
+==1614== Memcheck, a memory error detector
+==1614== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1614== Using Valgrind-3.14.0-353a3587bb-20181007X and LibVEX; rerun with -h for copyright info
+==1614== Command: ./waterjugpuzzle.cpp
+==1614== Parent PID: 1612
+==1614== 
+--1614-- 
+--1614-- Valgrind options:
+--1614--    --leak-check=full
+--1614--    --show-leak-kinds=all
+--1614--    --track-origins=yes
+--1614--    --verbose
+--1614--    --log-file=valgrind-out.txt
+--1614-- Contents of /proc/version:
+--1614--   Linux version 5.0.0-25-generic (buildd@lgw01-amd64-008) (gcc version 8.3.0 (Ubuntu 8.3.0-6ubuntu1)) #26-Ubuntu SMP Thu Aug 1 12:04:58 UTC 2019
+--1614-- 
+--1614-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2
+--1614-- Page sizes: currently 4096, max supported 4096
+--1614-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--1614-- Reading syms from /usr/bin/dash
+--1614--    object doesn't have a symbol table
+--1614-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.29.so
+--1614--   Considering /usr/lib/x86_64-linux-gnu/ld-2.29.so ..
+--1614--   .. CRC mismatch (computed c34345a7 wanted 87a50cbd)
+--1614--   Considering /lib/x86_64-linux-gnu/ld-2.29.so ..
+--1614--   .. CRC mismatch (computed c34345a7 wanted 87a50cbd)
+--1614--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.29.so ..
+--1614--   .. CRC is valid
+--1614-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--1614--    object doesn't have a symbol table
+--1614--    object doesn't have a dynamic symbol table
+--1614-- Scheduler: using generic scheduler lock implementation.
+--1614-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==1614== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-1614-by-root-on-???
+==1614== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-1614-by-root-on-???
+==1614== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-1614-by-root-on-???
+==1614== 
+==1614== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==1614== don't want to do, unless you know exactly what you're doing,
+==1614== or are doing some strange experiment):
+==1614==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=1614 ...command...
+==1614== 
+==1614== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==1614==   /path/to/gdb ./waterjugpuzzle.cpp
+==1614== and then give GDB the following command
+==1614==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=1614
+==1614== --pid is optional if only one valgrind process is running
+==1614== 
+--1614-- REDIR: 0x4020900 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c7e62 (???)
+--1614-- REDIR: 0x40206e0 (ld-linux-x86-64.so.2:index) redirected to 0x580c7e7c (???)
+--1614-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--1614--    object doesn't have a symbol table
+--1614-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--1614--    object doesn't have a symbol table
+==1614== WARNING: new redirection conflicts with existing -- ignoring it
+--1614--     old: 0x04020900 (strlen              ) R-> (0000.0) 0x580c7e62 ???
+--1614--     new: 0x04020900 (strlen              ) R-> (2007.0) 0x0483bd50 strlen
+--1614-- REDIR: 0x401d120 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ce10 (strcmp)
+--1614-- REDIR: 0x4020e40 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4840830 (mempcpy)
+--1614-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.29.so
+--1614--   Considering /usr/lib/x86_64-linux-gnu/libc-2.29.so ..
+--1614--   .. CRC mismatch (computed 6bda65da wanted 2c1cad96)
+--1614--   Considering /lib/x86_64-linux-gnu/libc-2.29.so ..
+--1614--   .. CRC mismatch (computed 6bda65da wanted 2c1cad96)
+--1614--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.29.so ..
+--1614--   .. CRC is valid
+--1614-- REDIR: 0x48fd240 (libc.so.6:memmove) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fc3e0 (libc.so.6:strncpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd560 (libc.so.6:strcasecmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fbd20 (libc.so.6:strcat) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fc440 (libc.so.6:rindex) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fed10 (libc.so.6:rawmemchr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x491a330 (libc.so.6:wmemchr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x4919d40 (libc.so.6:wcscmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd3a0 (libc.so.6:mempcpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd1d0 (libc.so.6:bcmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fc380 (libc.so.6:strncmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fbdd0 (libc.so.6:strcmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd300 (libc.so.6:memset) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x4919d00 (libc.so.6:wcschr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fc2e0 (libc.so.6:strnlen) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fbea0 (libc.so.6:strcspn) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd5b0 (libc.so.6:strncasecmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fbe40 (libc.so.6:strcpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd6f0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x491b650 (libc.so.6:wcsnlen) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fc480 (libc.so.6:strpbrk) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fbd80 (libc.so.6:index) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fc2a0 (libc.so.6:strlen) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x4906240 (libc.so.6:memrchr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd600 (libc.so.6:strcasecmp_l) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd190 (libc.so.6:memchr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x4919e30 (libc.so.6:wcslen) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fc720 (libc.so.6:strspn) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd500 (libc.so.6:stpncpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd4a0 (libc.so.6:stpcpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fed50 (libc.so.6:strchrnul) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd650 (libc.so.6:strncasecmp_l) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x48fd0d0 (libc.so.6:strstr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--1614-- REDIR: 0x49e4ec0 (libc.so.6:__strrchr_avx2) redirected to 0x483b760 (rindex)
+--1614-- REDIR: 0x48f7a40 (libc.so.6:malloc) redirected to 0x48386e0 (malloc)
+--1614-- REDIR: 0x49e4cd0 (libc.so.6:__strchrnul_avx2) redirected to 0x4840360 (strchrnul)
+--1614-- REDIR: 0x49e5090 (libc.so.6:__strlen_avx2) redirected to 0x483bc30 (strlen)
+--1614-- REDIR: 0x49e8080 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x483f870 (memmove)
+--1614-- REDIR: 0x49e8060 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4840470 (mempcpy)
+--1614-- REDIR: 0x49e05d0 (libc.so.6:__strcmp_avx2) redirected to 0x483ccd0 (strcmp)
+--1614-- REDIR: 0x49e01e0 (libc.so.6:__strcspn_sse42) redirected to 0x4840bd0 (strcspn)
+--1614-- REDIR: 0x49e0360 (libc.so.6:__strpbrk_sse42) redirected to 0x4840b70 (strpbrk)
+--1614-- REDIR: 0x49e0f20 (libc.so.6:__memchr_avx2) redirected to 0x483ceb0 (memchr)
+--1614-- REDIR: 0x48f81d0 (libc.so.6:free) redirected to 0x4839910 (free)
+--1614-- REDIR: 0x49e4aa0 (libc.so.6:__strchr_avx2) redirected to 0x483b8e0 (index)
+--1614-- REDIR: 0x48f8470 (libc.so.6:realloc) redirected to 0x483acd0 (realloc)
+==1615== 
+==1615== HEAP SUMMARY:
+==1615==     in use at exit: 1,658 bytes in 33 blocks
+==1615==   total heap usage: 38 allocs, 5 frees, 39,691 bytes allocated
+==1615== 
+==1615== Searching for pointers to 33 not-freed blocks
+==1615== Checked 82,384 bytes
+==1615== 
+==1615== 27 bytes in 1 blocks are still reachable in loss record 1 of 6
+==1615==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1615==    by 0x48FBFE9: strdup (strdup.c:42)
+==1615==    by 0x1167A8: ??? (in /usr/bin/dash)
+==1615==    by 0x10E728: ??? (in /usr/bin/dash)
+==1615==    by 0x11E868: ??? (in /usr/bin/dash)
+==1615==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1615==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1615== 
+==1615== 31 bytes in 1 blocks are still reachable in loss record 2 of 6
+==1615==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1615==    by 0x116768: ??? (in /usr/bin/dash)
+==1615==    by 0x11DD10: ??? (in /usr/bin/dash)
+==1615==    by 0x11E868: ??? (in /usr/bin/dash)
+==1615==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1615==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1615== 
+==1615== 32 bytes in 1 blocks are still reachable in loss record 3 of 6
+==1615==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1615==    by 0x116768: ??? (in /usr/bin/dash)
+==1615==    by 0x11DBD9: ??? (in /usr/bin/dash)
+==1615==    by 0x11E843: ??? (in /usr/bin/dash)
+==1615==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1615==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1615== 
+==1615== 160 bytes in 1 blocks are still reachable in loss record 4 of 6
+==1615==    at 0x483867F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1615==    by 0x483ADB7: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1615==    by 0x116788: ??? (in /usr/bin/dash)
+==1615==    by 0x115AA6: ??? (in /usr/bin/dash)
+==1615==    by 0x110103: ??? (in /usr/bin/dash)
+==1615==    by 0x10F1AD: ??? (in /usr/bin/dash)
+==1615==    by 0x11655B: ??? (in /usr/bin/dash)
+==1615==    by 0x10D719: ??? (in /usr/bin/dash)
+==1615==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1615== 
+==1615== 512 bytes in 1 blocks are still reachable in loss record 5 of 6
+==1615==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1615==    by 0x116802: ??? (in /usr/bin/dash)
+==1615==    by 0x116A25: ??? (in /usr/bin/dash)
+==1615==    by 0x116ACC: ??? (in /usr/bin/dash)
+==1615==    by 0x11E024: ??? (in /usr/bin/dash)
+==1615==    by 0x110C86: ??? (in /usr/bin/dash)
+==1615==    by 0x11051A: ??? (in /usr/bin/dash)
+==1615==    by 0x10F1AD: ??? (in /usr/bin/dash)
+==1615==    by 0x11655B: ??? (in /usr/bin/dash)
+==1615==    by 0x10D719: ??? (in /usr/bin/dash)
+==1615==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1615== 
+==1615== 896 bytes in 28 blocks are still reachable in loss record 6 of 6
+==1615==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1615==    by 0x116768: ??? (in /usr/bin/dash)
+==1615==    by 0x11DBD9: ??? (in /usr/bin/dash)
+==1615==    by 0x11E7F3: ??? (in /usr/bin/dash)
+==1615==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1615==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1615== 
+==1615== LEAK SUMMARY:
+==1615==    definitely lost: 0 bytes in 0 blocks
+==1615==    indirectly lost: 0 bytes in 0 blocks
+==1615==      possibly lost: 0 bytes in 0 blocks
+==1615==    still reachable: 1,658 bytes in 33 blocks
+==1615==         suppressed: 0 bytes in 0 blocks
+==1615== 
+==1615== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1615== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+--1614-- REDIR: 0x49e65c0 (libc.so.6:__strcpy_avx2) redirected to 0x483bd80 (strcpy)
+--1614-- REDIR: 0x49e72b0 (libc.so.6:__stpcpy_avx2) redirected to 0x483f150 (stpcpy)
+==1616== 
+==1616== HEAP SUMMARY:
+==1616==     in use at exit: 1,658 bytes in 33 blocks
+==1616==   total heap usage: 72 allocs, 39 frees, 269,536 bytes allocated
+==1616== 
+==1616== Searching for pointers to 33 not-freed blocks
+==1616== Checked 82,384 bytes
+==1616== 
+==1616== 27 bytes in 1 blocks are still reachable in loss record 1 of 6
+==1616==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1616==    by 0x48FBFE9: strdup (strdup.c:42)
+==1616==    by 0x1167A8: ??? (in /usr/bin/dash)
+==1616==    by 0x10E728: ??? (in /usr/bin/dash)
+==1616==    by 0x11E868: ??? (in /usr/bin/dash)
+==1616==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1616==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1616== 
+==1616== 31 bytes in 1 blocks are still reachable in loss record 2 of 6
+==1616==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1616==    by 0x116768: ??? (in /usr/bin/dash)
+==1616==    by 0x11DD10: ??? (in /usr/bin/dash)
+==1616==    by 0x11E868: ??? (in /usr/bin/dash)
+==1616==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1616==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1616== 
+==1616== 32 bytes in 1 blocks are still reachable in loss record 3 of 6
+==1616==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1616==    by 0x116768: ??? (in /usr/bin/dash)
+==1616==    by 0x11DBD9: ??? (in /usr/bin/dash)
+==1616==    by 0x11E843: ??? (in /usr/bin/dash)
+==1616==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1616==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1616== 
+==1616== 160 bytes in 1 blocks are still reachable in loss record 4 of 6
+==1616==    at 0x483867F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1616==    by 0x483ADB7: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1616==    by 0x116788: ??? (in /usr/bin/dash)
+==1616==    by 0x115AA6: ??? (in /usr/bin/dash)
+==1616==    by 0x110103: ??? (in /usr/bin/dash)
+==1616==    by 0x10F1AD: ??? (in /usr/bin/dash)
+==1616==    by 0x11655B: ??? (in /usr/bin/dash)
+==1616==    by 0x10D719: ??? (in /usr/bin/dash)
+==1616==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1616== 
+==1616== 512 bytes in 1 blocks are still reachable in loss record 5 of 6
+==1616==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1616==    by 0x116802: ??? (in /usr/bin/dash)
+==1616==    by 0x116A25: ??? (in /usr/bin/dash)
+==1616==    by 0x116ACC: ??? (in /usr/bin/dash)
+==1616==    by 0x11E024: ??? (in /usr/bin/dash)
+==1616==    by 0x110C86: ??? (in /usr/bin/dash)
+==1616==    by 0x11051A: ??? (in /usr/bin/dash)
+==1616==    by 0x10F1AD: ??? (in /usr/bin/dash)
+==1616==    by 0x11655B: ??? (in /usr/bin/dash)
+==1616==    by 0x10D719: ??? (in /usr/bin/dash)
+==1616==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1616== 
+==1616== 896 bytes in 28 blocks are still reachable in loss record 6 of 6
+==1616==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1616==    by 0x116768: ??? (in /usr/bin/dash)
+==1616==    by 0x11DBD9: ??? (in /usr/bin/dash)
+==1616==    by 0x11E7F3: ??? (in /usr/bin/dash)
+==1616==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1616==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1616== 
+==1616== LEAK SUMMARY:
+==1616==    definitely lost: 0 bytes in 0 blocks
+==1616==    indirectly lost: 0 bytes in 0 blocks
+==1616==      possibly lost: 0 bytes in 0 blocks
+==1616==    still reachable: 1,658 bytes in 33 blocks
+==1616==         suppressed: 0 bytes in 0 blocks
+==1616== 
+==1616== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1616== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1617== 
+==1617== HEAP SUMMARY:
+==1617==     in use at exit: 2,170 bytes in 34 blocks
+==1617==   total heap usage: 89 allocs, 55 frees, 275,264 bytes allocated
+==1617== 
+==1617== Searching for pointers to 34 not-freed blocks
+==1617== Checked 83,280 bytes
+==1617== 
+==1617== 27 bytes in 1 blocks are still reachable in loss record 1 of 7
+==1617==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1617==    by 0x48FBFE9: strdup (strdup.c:42)
+==1617==    by 0x1167A8: ??? (in /usr/bin/dash)
+==1617==    by 0x10E728: ??? (in /usr/bin/dash)
+==1617==    by 0x11E868: ??? (in /usr/bin/dash)
+==1617==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1617==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1617== 
+==1617== 31 bytes in 1 blocks are still reachable in loss record 2 of 7
+==1617==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1617==    by 0x116768: ??? (in /usr/bin/dash)
+==1617==    by 0x11DD10: ??? (in /usr/bin/dash)
+==1617==    by 0x11E868: ??? (in /usr/bin/dash)
+==1617==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1617==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1617== 
+==1617== 32 bytes in 1 blocks are still reachable in loss record 3 of 7
+==1617==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1617==    by 0x116768: ??? (in /usr/bin/dash)
+==1617==    by 0x11DBD9: ??? (in /usr/bin/dash)
+==1617==    by 0x11E843: ??? (in /usr/bin/dash)
+==1617==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1617==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1617== 
+==1617== 160 bytes in 1 blocks are still reachable in loss record 4 of 7
+==1617==    at 0x483867F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1617==    by 0x483ADB7: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1617==    by 0x116788: ??? (in /usr/bin/dash)
+==1617==    by 0x115AA6: ??? (in /usr/bin/dash)
+==1617==    by 0x110103: ??? (in /usr/bin/dash)
+==1617==    by 0x10F1AD: ??? (in /usr/bin/dash)
+==1617==    by 0x11655B: ??? (in /usr/bin/dash)
+==1617==    by 0x10D719: ??? (in /usr/bin/dash)
+==1617==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1617== 
+==1617== 512 bytes in 1 blocks are still reachable in loss record 5 of 7
+==1617==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1617==    by 0x116802: ??? (in /usr/bin/dash)
+==1617==    by 0x112631: ??? (in /usr/bin/dash)
+==1617==    by 0x1138E7: ??? (in /usr/bin/dash)
+==1617==    by 0x10FF77: ??? (in /usr/bin/dash)
+==1617==    by 0x10F1AD: ??? (in /usr/bin/dash)
+==1617==    by 0x11655B: ??? (in /usr/bin/dash)
+==1617==    by 0x10D719: ??? (in /usr/bin/dash)
+==1617==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1617== 
+==1617== 512 bytes in 1 blocks are still reachable in loss record 6 of 7
+==1617==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1617==    by 0x116802: ??? (in /usr/bin/dash)
+==1617==    by 0x116A25: ??? (in /usr/bin/dash)
+==1617==    by 0x116ACC: ??? (in /usr/bin/dash)
+==1617==    by 0x11E024: ??? (in /usr/bin/dash)
+==1617==    by 0x110C86: ??? (in /usr/bin/dash)
+==1617==    by 0x11051A: ??? (in /usr/bin/dash)
+==1617==    by 0x10F1AD: ??? (in /usr/bin/dash)
+==1617==    by 0x11655B: ??? (in /usr/bin/dash)
+==1617==    by 0x10D719: ??? (in /usr/bin/dash)
+==1617==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1617== 
+==1617== 896 bytes in 28 blocks are still reachable in loss record 7 of 7
+==1617==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1617==    by 0x116768: ??? (in /usr/bin/dash)
+==1617==    by 0x11DBD9: ??? (in /usr/bin/dash)
+==1617==    by 0x11E7F3: ??? (in /usr/bin/dash)
+==1617==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1617==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1617== 
+==1617== LEAK SUMMARY:
+==1617==    definitely lost: 0 bytes in 0 blocks
+==1617==    indirectly lost: 0 bytes in 0 blocks
+==1617==      possibly lost: 0 bytes in 0 blocks
+==1617==    still reachable: 2,170 bytes in 34 blocks
+==1617==         suppressed: 0 bytes in 0 blocks
+==1617== 
+==1617== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1617== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1614== 
+==1614== HEAP SUMMARY:
+==1614==     in use at exit: 1,146 bytes in 32 blocks
+==1614==   total heap usage: 106 allocs, 74 frees, 281,024 bytes allocated
+==1614== 
+==1614== Searching for pointers to 32 not-freed blocks
+==1614== Checked 82,128 bytes
+==1614== 
+==1614== 27 bytes in 1 blocks are still reachable in loss record 1 of 5
+==1614==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1614==    by 0x48FBFE9: strdup (strdup.c:42)
+==1614==    by 0x1167A8: ??? (in /usr/bin/dash)
+==1614==    by 0x10E728: ??? (in /usr/bin/dash)
+==1614==    by 0x11E868: ??? (in /usr/bin/dash)
+==1614==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1614==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1614== 
+==1614== 31 bytes in 1 blocks are still reachable in loss record 2 of 5
+==1614==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1614==    by 0x116768: ??? (in /usr/bin/dash)
+==1614==    by 0x11DD10: ??? (in /usr/bin/dash)
+==1614==    by 0x11E868: ??? (in /usr/bin/dash)
+==1614==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1614==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1614== 
+==1614== 32 bytes in 1 blocks are still reachable in loss record 3 of 5
+==1614==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1614==    by 0x116768: ??? (in /usr/bin/dash)
+==1614==    by 0x11DBD9: ??? (in /usr/bin/dash)
+==1614==    by 0x11E843: ??? (in /usr/bin/dash)
+==1614==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1614==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1614== 
+==1614== 160 bytes in 1 blocks are still reachable in loss record 4 of 5
+==1614==    at 0x483867F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1614==    by 0x483ADB7: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1614==    by 0x116788: ??? (in /usr/bin/dash)
+==1614==    by 0x115AA6: ??? (in /usr/bin/dash)
+==1614==    by 0x110103: ??? (in /usr/bin/dash)
+==1614==    by 0x10F1AD: ??? (in /usr/bin/dash)
+==1614==    by 0x11655B: ??? (in /usr/bin/dash)
+==1614==    by 0x10D719: ??? (in /usr/bin/dash)
+==1614==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1614== 
+==1614== 896 bytes in 28 blocks are still reachable in loss record 5 of 5
+==1614==    at 0x483874F: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1614==    by 0x116768: ??? (in /usr/bin/dash)
+==1614==    by 0x11DBD9: ??? (in /usr/bin/dash)
+==1614==    by 0x11E7F3: ??? (in /usr/bin/dash)
+==1614==    by 0x10D60B: ??? (in /usr/bin/dash)
+==1614==    by 0x4885B6A: (below main) (libc-start.c:308)
+==1614== 
+==1614== LEAK SUMMARY:
+==1614==    definitely lost: 0 bytes in 0 blocks
+==1614==    indirectly lost: 0 bytes in 0 blocks
+==1614==      possibly lost: 0 bytes in 0 blocks
+==1614==    still reachable: 1,146 bytes in 32 blocks
+==1614==         suppressed: 0 bytes in 0 blocks
+==1614== 
+==1614== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1614== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

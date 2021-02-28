@@ -1,0 +1,37 @@
+
+index 0 1 2 3 4  5 6 
+value 0 5 1 2 10 6 2
+
+
+
+algorith coin_row(C)
+	algorith coin_row_helper(n)
+		if n==0 -> return 0
+		if n==1 -> return C[1]
+		return max(C[n] + coin_row_helper(n-2), coin_row_helper(n-1))
+
+	return coin_row_helper(len(C) - 1)
+
+memoization?
+
+1.) check if key is already in memo. if so, return value associated with key
+2.) do work recursively store result in a local variable
+3.) put result in memo return result
+
+
+F: max sum you can create up to the given index
+S: the index from which you've chosen the smaller solution
+
+Runtime:
+Theta(n) to build the table
+Theta(n) to backtrack
+
+
+Runtime of table thingy:
+Theta(m*n) to build table
+Theta(m+n) to backtracks
+
+
+
+
+F 

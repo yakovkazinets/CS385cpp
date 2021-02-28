@@ -1,0 +1,101 @@
+
+suppose we have a graph
+
+a_--> b 
+|\__  |
+    \ |
+     \\/
+c <-- d
+
+Warshall's Algorithm:
+
+Definition: the transitive closure of a directed graph with n vertices can be defined as the n * n boolean matrix T = {t, j}
+	    in which the ith and jth coulmn is 1 if there exists a non trivial path(ie a directed path of positive length) 
+	    from the ith vertex to the jth vertex j otherwise t_ij is 0.
+
+R^(0)
+
+	a	b	c	d
+a	|0|_	1_	0_	0_
+
+b	|0|	0	0 	1
+
+c 	|0|	0	0	0
+
+d	|1|	0	1	0
+
+R^(1) a is the intermediate
+
+	a	b	c	d
+a	0	|1|	0	0
+				
+b	0_	|0|_	0_	1_
+					
+c 	0	|0|	0	0
+				
+d	1	|1|	1	0
+
+R^(2) a,b is the intermediate
+
+	a	b	c	d
+a	0	1	|0	1
+				
+b	0	0	|0	1
+					
+c 	0_	0_	|0_	0_
+				
+d	1	1	|1	1
+
+R^(3) a,b,c is the intermediate
+
+
+	a	b	c	d
+a	0	|1|	0	1
+				
+b	0	|0|	0	1
+					
+c 	0_	|0|_	0_	0_
+				
+d	1	|1|	1	1
+
+R^(4) a,b,c,d is the intermediate
+
+
+	a	b	c	d
+a	1	1	1	1	
+				
+b	1 	1 	1	1
+					
+c 	0	0	0	0
+				
+d	1	1	1	1
+
+From any vertex to any vertex does a non trivial path exist we now know
+
+Pseudo code 
+
+Algorithm Warshall (A[l..n, l..n])
+R^(0) <-A
+for k <- 1 to n do
+	for i <- 1 to n do
+		for  j <- 1 to n do
+			R^(k)[i,j] <- R^(k-1)[i,j] or (R^(k-1) [i,k] and R^(k-1)[k,j])
+
+return R^(n)
+
+Theta(n^3)
+
+Floyd's Algorithm ! 
+a shit ton of different graphs with infinity symbols
+
+D^(0) <-W
+for k <- 1 to n do
+	for i <- 1 to n do
+		for  j <- 1 to n do
+			D^(k)[i,j] <- min(D^(k-1)[i,j] or (D^(k-1) [i,k] + D^(k-1)[k,j])
+
+return D^(n) 
+
+Theta (n^3)
+
+We still could like to know which nodes we took to get to our solutions 

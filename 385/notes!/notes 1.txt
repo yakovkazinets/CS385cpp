@@ -1,0 +1,48 @@
+An algorithm is a sequence of unambiguous instructions for solving a problem, ie, for obtaining a required output
+for any legitimate input in a finite amount of time. 
+
+Important points:
+1.) The nonambiguity requirement for each step of an algorithm cannot be compromised
+2.) The range of inputs for which an algorithm works has to be a specified carefully. 
+3.) The same algorithm can be represented in several different ways 
+4.) There may exist several algorithms for solving the same problem 
+
+
+
+int sequential_search(int array[], const int size, int key){
+	for (int i =0; i<size; i++){
+		if (array[i] == key) {
+			return i;
+		}
+	}
+	return -1; 
+}
+
+Seuential search 
+Assume : 
+
+1.) the probability of a successful search is equal to p where p is (0<= p <= 1)
+2.) the probability of the first match occuring in the i th position is the same for every i 
+
+With a successful search the probability of the first match occuring in the i th position is 
+something is p/n for every i. 
+The # of comparisons: i
+With an unsuccessful search, the # of comparisons will be n, with the probability of such a search
+being 1-p.
+
+S = 1 + 2 + 3 + ... + n-1 + n
+S = n + n-1 + n- 2 + ... 2 + 1
+-------------------------------
+2S = n(n+1)/2
+
+C avg(n) = [1 * (p/n) + 2 * (p/n) +....+ i * (p/n) + ....+ n*(p/n)] + n(1-p)
+		 = p/n[1+ 2+ ....+ i + ....+ n) +n(1-p) 
+		 =  p(n+1)/2 + n(1-p) 
+		 
+if p = 1 =>>> search is successful # of probes (n+1)/2
+if p = 0 =>>> search is unsuccessful # of probes n 
+
+O(g(n)) = {f(n) : there exists positive constants c and n0 s.t. 0 <= f(n) <= c *g(n) for all n>= n0}
+Omega (g(n)) = {f(n): There exists positive constants c and n0 s.t. 0  <= f(n) <= c *g(n) for all n>= n0}
+Theta (g(n)) = {f(n): there exists positive constants c1, c2, and n0 s.t. 0<= c1 * g(n) <= f(n) <= c2*g(n) for all n>= n0} 
+

@@ -1,0 +1,97 @@
+BRGC(3)
+ BRGC(2)
+  BRGC(1)
+     ->['0', '1']  
+   L1<-['0', '1'] ===> ['00', '01']
+   L2<-['1', '0'] ===> ['11', '10']
+   ->['00', '01', '11', '10']
+
+page 148
+
+BRGC(n)
+input: positive interger n
+
+Binary reflected Gray code - Take an int and recursively generate the binary reflected Grey code of
+order of n. 
+
+Avoids overlap with changing states by changing only one bit at a time.
+
+if n=1 make list L containing bit strings 0 and 1 in this order
+else gen list L1 of bit strings of size n-1 by calling BRGC(n-1)
+	copy list L! to L2 in reversed order
+	add 0 in front of each bit string in list L1
+	add 1 in front of each bit string in list L2
+	append L2 to get list L
+
+
+Russian peasants
+
+43 * 56 = 2408
+
+n=43 m=56   	56
+21      112	112
+10	224
+5	448	448
+2	896
+1	1792    1792
+---------------------
+		2408
+
+Add up where n is odd
+O(log n)
+page 146
+Permutations:
+
+cat -> sort -> act
+are there 2 increasing? yes
+what is the value of i? i=1
+largest after i that is j? j=2
+reverese i+1 to the end
+
+->atc-> cta -> tca -> act -> cat
+
+abct
+
+
+Gens permutations in lexicographic order
+Input a positive integer n
+Output: a list of all permutations of [1...n] in lexicographic oder intialize the first perm with 1,2...n
+while last permutation has 2 consecutive elements in increasing order do
+	let i be the largest index such that a i < a i+1 
+	find the largest index s.t. a i < a j
+	swap ai and aj
+	
+
+
+
+Review this SHIT!:
+	Advanced: Mergesort, Quicksort, Quickselect, Lomuto Parti, Counting sort, Radix sort
+	Elementary sorting(n^2): Bubble, Insertion, Selection
+
+what the fuck is n choose k on cheatsheet!
+
+Adjancey lists vs adjanceny matrices: understand space/runtime differences
+	-PUT BOTH THE THEM 
+
+quicksort
+
+algorithm quicksort(A, lo, hi) is
+    if lo < hi then
+        p := partition(A, lo, hi)
+        quicksort(A, lo, p - 1)
+        quicksort(A, p + 1, hi)
+
+algorithm partition(A, lo, hi) is
+    pivot := A[hi]
+    i := lo
+    for j := lo to hi do
+        if A[j] < pivot then
+            swap A[i] with A[j]
+            i := i + 1
+    swap A[i] with A[hi]
+    return i
+
+quickselect
+theta(n) Worst: O(n^2)
+quiksort: 
+theta(nlogn)
